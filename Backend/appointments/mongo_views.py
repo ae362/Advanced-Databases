@@ -2141,3 +2141,44 @@ def direct_update_appointment_status(request, appointment_id):
             return JsonResponse({"error": str(e)}, status=500)
     
     return JsonResponse({"error": "Method not allowed"}, status=405)
+@csrf_exempt
+@require_http_methods(["GET"])
+def appointment_stats(request):
+    """
+    Endpoint to get appointment statistics from MongoDB
+    """
+    try:
+        # Connect to MongoDB
+        from pymongo import MongoClient
+        client = MongoClient(settings.MONGODB_URI)
+        db = client[settings.MONGODB_NAME]
+        collection = db['appointments']
+        
+        # Count total appointments
+        total_count = collection.count_documents({})
+        
+        # Count completed appointments
+        completed_count = collection.count_documents({"status": "completed"})
+        
+        # Count pending/scheduled appointments
+        pending_count = collection.count_documents({
+            "status": {"$in": ["scheduled", "pending"]}
+        })
+        
+        # Count today's appointments
+        from datetime import datetime
+        today = datetime.now().strftime('%Y-%m-%d')
+        today_count = collection.count_documents({
+            "date": {"$regex": f"^{today}"}
+        })
+        
+        # Return the statistics
+        return JsonResponse({
+            "total": total_count,
+            "completed": completed_count,
+            "pending": pending_count,
+            "today": today_count
+        })
+        
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
