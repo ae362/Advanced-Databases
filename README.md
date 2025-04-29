@@ -6,6 +6,9 @@ cd backend
 ```
 pip install -r requirements.txt
 ```
+```
+pip install pymongo bcrypt requests
+```
 start backend with 
 ```
 pip manage.py runserver
