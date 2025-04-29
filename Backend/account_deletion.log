@@ -1,0 +1,23 @@
+2025-03-01 16:31:49,207 [INFO] Deleting account: ae362@canterbury.ac.uk (Role: patient, Last login: 2025-02-22 13:33:22.581340+00:00)
+2025-03-01 16:31:49,209 [INFO] Deleted 2 appointments for ae362@canterbury.ac.uk
+2025-03-01 16:31:49,211 [INFO] Successfully deleted account: ae362@canterbury.ac.uk
+2025-03-01 16:31:49,211 [INFO] Deleting account: ayoub1@gmail.com (Role: patient, Last login: 2025-03-01 15:57:08.407493+00:00)
+2025-03-01 16:31:49,213 [INFO] Deleted 0 appointments for ayoub1@gmail.com
+2025-03-01 16:31:49,214 [INFO] Successfully deleted account: ayoub1@gmail.com
+2025-03-01 16:31:49,215 [INFO] Deleting account: ayoub2@gmail.com (Role: patient, Last login: 2025-03-01 15:57:51.522777+00:00)
+2025-03-01 16:31:49,216 [INFO] Deleted 0 appointments for ayoub2@gmail.com
+2025-03-01 16:31:49,217 [INFO] Successfully deleted account: ayoub2@gmail.com
+2025-03-01 16:31:49,217 [INFO] Deleting account: ayoub3@gmail.com (Role: patient, Last login: 2025-03-01 16:09:42.396046+00:00)
+2025-03-01 16:31:49,218 [INFO] Deleted 0 appointments for ayoub3@gmail.com
+2025-03-01 16:31:49,220 [INFO] Successfully deleted account: ayoub3@gmail.com
+2025-03-01 16:31:49,220 [INFO] Deleting account: ayoub4@gmail.com (Role: patient, Last login: 2025-03-01 16:21:42.764928+00:00)
+2025-03-01 16:31:49,221 [INFO] Deleted 0 appointments for ayoub4@gmail.com
+2025-03-01 16:31:49,223 [INFO] Successfully deleted account: ayoub4@gmail.com
+2025-03-01 16:31:49,224 [INFO] Deleting account: ayoub5@gmail.com (Role: patient, Last login: 2025-03-01 16:15:40.545779+00:00)
+2025-03-01 16:31:49,225 [INFO] Deleted 0 appointments for ayoub5@gmail.com
+2025-03-01 16:31:49,227 [INFO] Successfully deleted account: ayoub5@gmail.com
+2025-03-01 16:31:49,227 [INFO] 
+Deletion Summary:
+2025-03-01 16:31:49,227 [INFO] ----------------------------------------
+2025-03-01 16:31:49,227 [INFO] Patient accounts deleted: 6
+2025-03-01 16:31:49,228 [INFO] ----------------------------------------
