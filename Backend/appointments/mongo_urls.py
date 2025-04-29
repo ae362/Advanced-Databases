@@ -41,4 +41,5 @@ urlpatterns = [
     path('api/appointments/<str:appointment_id>/update_status/', mongo_views.update_appointment_status, name='update_appointment_status'),
     path('api/appointments/new/', mongo_views.new_appointment_form, name='new_appointment'),
     path('api/appointments/<str:appointment_id>/direct-update/', mongo_views.direct_update_appointment_status, name='direct_update_appointment_status'),
+    path('api/appointments/stats/', mongo_views.appointment_stats, name='appointment_stats'),
 ]
