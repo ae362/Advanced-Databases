@@ -1,0 +1,48 @@
+name: Deploy Fullstack App
+
+on:
+  push:
+    branches:
+      - main  # or your deployment branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # or whatever version you need
+
+    - name: Install frontend dependencies
+      run: npm install
+      working-directory: ./frontend
+
+    - name: Build Next.js app (optional if needed)
+      run: npm run build
+      working-directory: ./frontend
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  # or whatever version you use
+
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+      working-directory: ./backend
+
+    - name: Start backend server
+      run: |
+        python manage.py runserver &
+      working-directory: ./backend
+
+    - name: Start frontend server
+      run: |
+        npm run dev
+      working-directory: ./frontend
+
