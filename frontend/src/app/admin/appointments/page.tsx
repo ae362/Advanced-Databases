@@ -92,7 +92,7 @@ export default function AdminAppointmentsPage() {
       console.log("Fetching all appointments for admin...")
 
       // Use fetchWithAuth helper instead of direct fetch
-      const response = await fetchWithAuth(`${API_BASE_URL}/api/appointments/?admin=true`)
+      const response = await fetchWithAuth(`${API_BASE_URL}/api/api/appointments/?admin=true`)
 
       console.log("Response status:", response.status)
 
