@@ -1,0 +1,53 @@
+name: Fullstack CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  fullstack:
+    name: Start Next.js + Python App
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+    - name: 📦 Checkout repository
+      uses: actions/checkout@v3
+
+    # -------- FRONTEND SETUP --------
+    - name: 🧰 Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: 📁 Install frontend dependencies (legacy peer deps)
+      run: npm install --legacy-peer-deps
+      working-directory: ./frontend
+
+    - name: 🔨 Build Next.js app
+      run: npm run build
+      working-directory: ./frontend
+
+    # -------- BACKEND SETUP --------
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 🔧 Install backend dependencies
+      run: pip install -r requirements.txt
+      working-directory: ./backend
+
+    - name: 🚀 Start backend server (background)
+      run: |
+        nohup python manage.py runserver 0.0.0.0:8000 &
+      working-directory: ./backend
+
+    # -------- FRONTEND START --------
+    - name: 🚀 Start frontend server
+      run: npm run dev
+      working-directory: ./frontend
