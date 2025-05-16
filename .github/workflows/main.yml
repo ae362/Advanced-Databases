@@ -44,11 +44,11 @@ jobs:
 
     - name: 🔧 Install backend dependencies
       run: pip install -r requirements.txt
-      working-directory: ./backend
+      working-directory: /backend
 
     - name: 🚀 Start backend server (background)
       run: |
-        nohup python manage.py runserver 0.0.0.0:8000 &
+        nohup python manage.py runserver  
       working-directory: ./backend
 
     # -------- FRONTEND START --------
