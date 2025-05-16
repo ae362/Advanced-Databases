@@ -27,6 +27,10 @@ jobs:
     - name: 📁 Install frontend dependencies (legacy peer deps)
       run: npm install --legacy-peer-deps
       working-directory: ./frontend
+      
+    - name: 📁 Install framer-motion (legacy peer deps)
+      run: npm install framer-motion --legacy-peer-deps
+      working-directory: ./frontend
 
     - name: 🔨 Build Next.js app
       run: npm run build
